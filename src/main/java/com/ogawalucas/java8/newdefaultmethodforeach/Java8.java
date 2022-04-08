@@ -2,6 +2,7 @@ package com.ogawalucas.java8.newdefaultmethodforeach;
 
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.function.Consumer;
 
 public class Java8 {
 
@@ -14,7 +15,15 @@ public class Java8 {
 
         strings.sort(new StringComparator());
 
-        strings.forEach(System.out::println);
+        strings.forEach(new Print());
+    }
+}
+
+class Print implements Consumer<String> {
+
+    @Override
+    public void accept(String string) {
+        System.out.println(string);
     }
 }
 
