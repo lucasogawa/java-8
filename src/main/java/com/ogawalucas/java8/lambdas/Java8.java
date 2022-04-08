@@ -14,7 +14,7 @@ public class Java8 {
         strings.add("string22");
 
         // ===== Comparator =====
-        //  - method1:
+        //  - without Lambda:
         Comparator<String> stringComparator = (string1, string2) -> {
             if (string1.length() < string2.length()) {
                 return -1;
@@ -26,24 +26,18 @@ public class Java8 {
         };
         strings.sort(stringComparator);
 
-        //  - method2:
+        //  - with Lambda:
         strings.sort((string1, string2) -> Integer.compare(string1.length(), string2.length()));
-
-        //  - method3:
-        strings.sort(Comparator.comparingInt(String::length));
 
 
 
         // ===== Consumer =====
-        //  - method1:
+        //  - without Lambda:
         Consumer<String> stringConsumer = string -> System.out.println(string);
         strings.forEach(stringConsumer);
 
-        //  - method2:
+        //  - with Lambda:
         strings.forEach(string -> System.out.println(string));
-
-        //  - method2:
-        strings.forEach(System.out::println);
 
 
 
